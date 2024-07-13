@@ -1,0 +1,74 @@
+﻿@model ProductModel
+@{
+    ViewData["title"] = "Edit Product";
+}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<h4>
+    Update Product Form
+</h4>
+<div class="col-md-9">
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories">
+                <option>Choose a category</option>
+            </select>
+            <span asp-validation-for="CategoryID" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Brand</label>
+            <select asp-for="BrandID" class="form-control" asp-items="ViewBag.Brands">
+                <option>Choose a brand</option>
+            </select>
+            <span asp-validation-for="BrandID" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Image</label>
+            <input asp-for="ImageUpload" class="form-control-file" />
+            <span asp-validation-for="ImageUpload" class="text-danger" />
+            <img src="~/images/products/@Model.Image" alt="@Model.Name" width="120" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Update</button>
+        </div>
+    </form>
+    <a asp-action="Index">Back to List Product</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+ 
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <link rel="stylesheet" href="~/lib/summernote/summernote-bs4.min.css" />
+    <script>
+        $(document).ready(function () {
+            $('#Description').summernote();
+        });
+    </script>
+}
+

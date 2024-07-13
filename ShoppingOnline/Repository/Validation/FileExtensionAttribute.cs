@@ -6,21 +6,19 @@ namespace ShoppingOnline.Repository.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (value is IFormFile file)
+            if(value is IFormFile file)
             {
-                var extension = Path.GetExtension(file.FileName); //123.jpg
-                string[] extensions = { "jpg", "png", "jpeg" };
-                bool result = extension.Any(x => extension.EndsWith(x));
+                var extension = Path.GetExtension(file.FileName);
+                string[] extensions = { "jpg", "png", "jpeg", "gif" };
 
-                if (!result)
+                bool result = extensions.Any(x => extension.EndsWith(x));
+
+                if(!result)
                 {
-                    return new ValidationResult("Allowed extension are jpg or png or jpeg");
+                    return new ValidationResult("Allowed extensions are jpg, png, jpeg, or gif");
                 }
-                
             }
             return ValidationResult.Success;
-            
         }
     }
 }
-

@@ -7,9 +7,9 @@
 <div class="col-sm-9 padding-right">
 	<div class="features_items">
 		<!--features_items-->
-		<h2 class="title text-center">Features Items</h2>
+		<h2 class="title text-center">Products</h2>
 		@foreach (var item in Model)
-		{
+		{ 
 			<div class="col-sm-4">
 				<div class="product-image-wrapper">
 					
@@ -17,7 +17,8 @@
 						
 							<div class="productinfo text-center">
 								<a asp-action="Details" asp-controller="Product" asp-route-Id="@item.Id">
-								<img src="~/images/@item.Image" alt="@item.Name" width="100%" />
+								@* <img src="~/images/@item.Image" alt="@item.Name" width="100%" /> *@
+								<img src="~/images/products/@item.Image" alt="@item.Name" width="100%" />
 								<h2>$@item.Price</h2>
 								<p>@item.Name</p>
 								<p>Danh mục: @item.Category.Name</p>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CategoryModel>
+@{
+    ViewData["title"] = "Category Listed";
+}
+<h3>List Category</h3>
+<a class="btn btn-primary" asp-action="Create" asp-controller="Category">Add Category</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Category ID</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Category Description</th>
+            <th scope="col">Category Slug</th>
+            <th scope="col">Category Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                @* <td>@item.Description</td> *@
+                <td>@Html.Raw(item.Description)</td>
+                <td>@item.Slug</td>
+                <td>@if(item.Status == 1)
+                    {
+                        <span class="text text-success">Showed</span>
+                    } else
+                    {
+                        <span class="text text-danger">Hided</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning btn-sm" asp-controller="Category" asp-route-Id="@item.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger btn-sm confirmDeletion" asp-controller="Category" asp-route-Id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
