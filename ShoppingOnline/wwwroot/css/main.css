@@ -252,20 +252,24 @@ a#scrollUp i{
 	color:#fdb45e;
 }
 
+.search-box {
+	border-radius: 20px;
+}
+
 .search_box input {
   background: #F0F0E9;
   border: medium none;
   color: #B2B2B2;
-  font-family: 'roboto';
-  font-size: 12px;
+  font-family: Arial;
+  font-size: 20px;
   font-weight: 300;
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
+  width: 100%;
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 130px;
+  background-position: right;
 }
 
 
@@ -581,7 +585,8 @@ ul.sub-menu {
 }
 
 .item {
-  padding-left: 100px;
+	/*padding-left: 100px;*/
+	padding-left: 0px;
 }
 
 
@@ -1045,7 +1050,7 @@ h2.title {
 }
 
 #recommended-item-carousel .carousel-inner .item {
-  padding-left: 0;
+  /*padding-left: 0;*/
 }
 
 .recommended-item-control {

@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Home | E-Shopper</title>
+	<title>Home | CyberCoreShop</title>
 	<link href="~/css/bootstrap.min.css" rel="stylesheet">
-	<link href="~/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 	<link href="~/css/prettyPhoto.css" rel="stylesheet">
 	<link href="~/css/price-range.css" rel="stylesheet">
 	<link href="~/css/animate.css" rel="stylesheet">
@@ -22,78 +22,41 @@
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
 
+
+</head><!--/head-->
 <body>
 	<header id="header">
 		<!--header-->
 		<div class="header_top">
-			<!--header_top-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div><!--/header_top-->
 
 		<div class="header-middle">
 			<!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-2">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
+							<a asp-action="Index" asp-controller="Home">
+								<img src="~/images/home/CCShop.png" alt="logo" width="150px" />
+							</a>
 						</div>
 					</div>
-					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
+
+					<div class="col-sm-4">
+							<div class="search_box">
+								<input type="text" placeholder="Search" />
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="shop-menu">
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>	
+								<li><a asp-controller="Account"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -104,8 +67,8 @@
 		<div class="header-bottom">
 			<!--header-bottom-->
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
+				<div class="row justify-content-center">
+					<div class="col-sm-12">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -114,7 +77,7 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu pull-left">
+						<div class="mainmenu d-flex justify-content-center">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a asp-controller="Home" class="active">Home</a></li>
 								<li class="dropdown">
@@ -134,14 +97,20 @@
 										<li><a href="blog-single.html">Blog Single</a></li>
 									</ul>
 								</li>
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li class="dropdown-item">
+									<a asp-action="" asp-controller="">Mac</a>
+									<ul role="menu" class="sub-menu">
+										<li><a>Blog List</a></li>
+										<li><a>Blog Single</a></li>
+									</ul>
+								</li>
+								<li><a>iPad</a></li>
+								<li><a>iPhone</a></li>
+								<li><a>Watch</a></li>
+								<li><a>Vision</a></li>
+								<li><a>AirPod</a></li>
+								<li><a>Accessories</a></li>
 							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" />
 						</div>
 					</div>
 				</div>
@@ -163,57 +132,102 @@
 
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
+								<div class="col-sm-12" >
+									<img src="~/images/banner/banner iPad Air M2-T7_PC.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
+								<div class="col-sm-12">
+									<img src="~/images/banner/banner Mac.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 
 							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
+								<div class="col-sm-12">
+									<img src="~/images/banner/banner iPhone 15 Pro Max T7_PC.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 
 						</div>
 
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+						<a href="#slider-carousel" class="left control-carousel hidden-sm" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
 						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+						<a href="#slider-carousel" class="right control-carousel hidden-sm" data-slide="next">
 							<i class="fa fa-angle-right"></i>
 						</a>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section><!--/slider-->
+
+
+	<section id="slider-feedback">
+		<!--slider feedback-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel2" class="carousel slide" data-ride="carousel" style="position: relative;">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel2" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel2" data-slide-to="1"></li>
+							<li data-target="#slider-carousel2" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="row" style="display: flex; justify-content: space-between;">
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/B Trần.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/Bình An _ Phương Nga.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; padding-bottom: 40px;">
+										<img src="~/images/feedback/Duydam.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="row" style="display: flex; justify-content: space-between;">
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/HUyền Lizze _ Quỳnh Koool.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/Huỳnh Anh.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; padding-bottom: 40px;">
+										<img src="~/images/feedback/Lê Bống.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="row" style="display: flex; justify-content: space-between;">
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/Thu Mít.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; margin-right: 10px; padding-bottom: 40px;">
+										<img src="~/images/feedback/Trung Anh.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+									<div style="width: 423px; height: auto; padding-bottom: 40px;">
+										<img src="~/images/feedback/Trung Ruồi.png" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<a href="#slider-carousel2" class="left control-carousel hidden-sm" data-slide="prev" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 20px;">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel2" class="right control-carousel hidden-sm" data-slide="next" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 20px;">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section>
 		<div class="container">
