@@ -262,6 +262,12 @@ namespace ShoppingOnline.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LoaiDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ManHinh")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -275,6 +281,27 @@ namespace ShoppingOnline.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("ShoppingOnline.Models.ColorProductModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("HexCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ColorProductModels");
                 });
 
             modelBuilder.Entity("ShoppingOnline.Models.ProductModel", b =>
@@ -291,11 +318,23 @@ namespace ShoppingOnline.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ColorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal?>("DiscountPrice")
+                        .HasColumnType("decimal(18,0)");
+
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LoaiDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManHinh")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -305,14 +344,28 @@ namespace ShoppingOnline.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,0)");
 
+                    b.Property<string>("RAM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ROM")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Slug")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stock")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BrandID");
 
                     b.HasIndex("CategoryID");
+
+                    b.HasIndex("ColorId");
 
                     b.ToTable("Products");
                 });
@@ -382,9 +435,15 @@ namespace ShoppingOnline.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ShoppingOnline.Models.ColorProductModel", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId");
+
                     b.Navigation("Brand");
 
                     b.Navigation("Category");
+
+                    b.Navigation("Color");
                 });
 #pragma warning restore 612, 618
         }

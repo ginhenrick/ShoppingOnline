@@ -13,6 +13,11 @@
 	<link href="~/css/animate.css" rel="stylesheet">
 	<link href="~/css/main.css" rel="stylesheet">
 	<link href="~/css/responsive.css" rel="stylesheet">
+
+	<!--google font: SF Pro Text-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=SF+Pro+Text:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -45,18 +50,21 @@
 					</div>
 
 					<div class="col-sm-4">
-							<div class="search_box">
-								<input type="text" placeholder="Search" />
+						<div class="search_box">
+							<input type="text" placeholder="Search" />
+							<a asp-action="Search" asp-controller="Search">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</a>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="shop-menu">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>	
-								<li><a asp-controller="Account"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a asp-action="Index" asp-controller="Cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>	
+								<li><a asp-action="Create" asp-controller="Account"><i class="fa-solid fa-sign-in-alt"></i></i> Signup</a></li>
+								<li><a asp-action="Index" asp-controller="Account"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a asp-action="Profile" asp-controller="Account"><i class="fa fa-user"></i> Account</a></li>
 							</ul>
 						</div>
 					</div>
@@ -66,8 +74,8 @@
 
 		<div class="header-bottom">
 			<!--header-bottom-->
-			<div class="container">
-				<div class="row justify-content-center">
+			<div class="container" >
+				<div class="row">
 					<div class="col-sm-12">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,39 +85,35 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu d-flex justify-content-center">
+						<div class="mainmenu">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a asp-controller="Home" class="active">Home</a></li>
-								<li class="dropdown">
+								<li class="dropdown item">
 									<a asp-controller="Product">Shop<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a asp-action="Index" asp-controller="Category">Category</a></li>
 										<li><a asp-action="Details" asp-controller="Product">Product Details</a></li>
 										<li><a asp-action="Index" asp-controller="Checkout">Checkout</a></li>
 										<li><a asp-action="Index" asp-controller="Cart">Cart</a></li>
-										<li><a >Login</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#">Blog<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+										<li><a asp-action="" asp-controller="">News</a></li>
+										<li><a asp-action="" asp-controller="">Discounts</a></li>
+										<li><a asp-action="Index" asp-controller="Account">Login</a></li>
 									</ul>
 								</li>
 								<li class="dropdown-item">
 									<a asp-action="" asp-controller="">Mac</a>
-									<ul role="menu" class="sub-menu">
-										<li><a>Blog List</a></li>
-										<li><a>Blog Single</a></li>
-									</ul>
 								</li>
-								<li><a>iPad</a></li>
-								<li><a>iPhone</a></li>
-								<li><a>Watch</a></li>
-								<li><a>Vision</a></li>
-								<li><a>AirPod</a></li>
-								<li><a>Accessories</a></li>
+								<li><a asp-action="" asp-controller="">iPad</a></li>
+								<li>
+									<a asp-action="" asp-controller="">iPhone</a>
+								</li>
+								<li><a asp-action="" asp-controller="">Watch</a></li>
+								<li><a asp-action="" asp-controller="">Vision</a></li>
+								<li><a asp-action="" asp-controller="">AirPod</a></li>
+								<li><a asp-action="" asp-controller="">Accessories</a></li
+								
+
+								
 							</ul>
 						</div>
 					</div>

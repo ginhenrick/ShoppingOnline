@@ -25,7 +25,12 @@ namespace ShoppingOnline.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-           return View(await _dataContext.Products.OrderByDescending(p => p.Id).Include(p => p.Category).Include(p => p.Brand).ToListAsync());
+           return View(await _dataContext.Products
+               .OrderByDescending(p => p.Id)
+               .Include(p => p.Category)
+               .Include(p => p.Brand)
+               .Include(p => p.Color)
+               .ToListAsync());
         }
 
 		//[Route("Create")]

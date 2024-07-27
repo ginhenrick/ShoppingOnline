@@ -23,7 +23,13 @@ namespace ShoppingOnline.Models
         [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]  // Hiển thị  'N0' (không chữ số thập phân)
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "Yêu cầu chọn 1 thương hiệu")]
+		// Giá khuyến mãi (thêm trường mới)
+		[Column(TypeName = "decimal(18,0)")] // Định dạng decimal
+		[DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]  // Hiển thị  'N0' (không chữ số thập phân)
+		public decimal? DiscountPrice { get; set; } // Dùng kiểu nullable decimal
+
+
+		[Required(ErrorMessage = "Yêu cầu chọn 1 thương hiệu")]
         [Range(1, int.MaxValue, ErrorMessage = "Yêu cầu chọn 1 thương hiệu")]
         public int BrandID { get; set; }
 
@@ -42,6 +48,25 @@ namespace ShoppingOnline.Models
         //[Required(ErrorMessage = "Yêu cầu tải lên hình ảnh")]
         public IFormFile? ImageUpload { get; set; }
 
-    }
+        public int Status { get; set; }
+
+		// Dung lượng ROM
+		//[Required(ErrorMessage = "Yêu cầu nhập bộ nhớ trong")]
+		public string? ROM { get; set; }
+
+		// Dung lượng RAM
+		public string RAM { get; set; }
+
+        // Màu sắc
+        //[Required(ErrorMessage = "Yêu cầu chọn 1 màu sắc")]
+        public int? ColorId { get; set; } 
+            
+        public ColorProductModel Color { get; set; } // Thêm thuộc tính Color
+
+        public int? Stock { get; set; } // Số lượng tồn kho
+
+		public string? LoaiDay { get; set; } // Loại dây của đồng hồ
+		public string? ManHinh { get; set; } // Kích thước màn hình
+	}
     }
 

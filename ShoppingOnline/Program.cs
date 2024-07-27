@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 //ConnectionDB
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration["ConnectionStrings:ShoppingOnline"]);
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:CellphoneShop"]);
 });
 
 // Add services to the container.
@@ -66,9 +66,20 @@ app.UseAuthorization();
 
 app.UseAuthorization();
 
+
+//app.MapControllerRoute(
+//    name: "admin",
+//    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}",
+//    defaults: new { area = "Admin", controller = "Dashboard", action = "Index" });
+
+//app.MapControllerRoute(
+//    name: "dashboard",
+//    pattern: "dashboard",
+//    defaults: new { area = "Admin", controller = "Dashboard", action = "Index" });
 app.MapControllerRoute(
     name: "Areas",
     pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}");
+
 
 app.MapControllerRoute(
 	name: "category",
@@ -79,7 +90,6 @@ app.MapControllerRoute(
 	name: "brand",
 	pattern: "/brand/{Slug?}",
 	defaults: new { controller = "Brand", action = "Index" });
-
 
 app.MapControllerRoute(
     name: "default",

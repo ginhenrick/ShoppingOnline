@@ -14,5 +14,8 @@ namespace ShoppingOnline.Models
 		
 		public string Slug { get; set; }
         public int Status { get; set; }
-    }
+
+		public string? LoaiDay { get; set; } // Loại dây của đồng hồ
+		public int? ManHinh { get; set; } // Kích thước màn hình
+	}
 }

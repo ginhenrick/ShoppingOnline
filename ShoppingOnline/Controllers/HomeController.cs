@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShoppingOnline.Models;
+using ShoppingOnline.Models.ViewModels;
 using ShoppingOnline.Repository;
 using System.Diagnostics;
 
@@ -25,14 +26,43 @@ namespace ShoppingOnline.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = await _dataContext.Products
-                .Include(p => p.Category)
-                .Include(p => p.Brand)
-                .Where(p => p.Category.Status == 1 && p.Brand.Status == 1) // Lọc sản phẩm theo Category.Status và Brand.Status
-                .OrderByDescending(p => p.Id)
-                .ToListAsync();
+            var categories = await _dataContext.Categories
+               .Where(c => c.Status == 1)
+               .ToListAsync();
 
-            return View(products);
+            List<CategoryProductsViewModel> viewModel = new List<CategoryProductsViewModel>();
+
+            foreach (var category in categories)
+            {
+                var products = await _dataContext.Products
+                    .Include(p => p.Category)
+                    .Include(p => p.Brand)
+                    .Include(p => p.Color)
+                    .Where(p => p.Category.Id == category.Id && p.Status == 1)
+                    .OrderByDescending(p => p.Id)
+                    .Take(4)
+                    .Select(p => new ProductViewModel
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        Price = p.Price,
+                        DiscountPrice = p.DiscountPrice,
+                        Image = p.Image,
+                        DiscountPercentage = p.DiscountPrice.HasValue ? (int)((p.DiscountPrice.Value - p.Price) / p.DiscountPrice.Value * 100) : 0,
+                        ColorName = p.Color.Name
+                    })
+                    .ToListAsync();
+
+                var categoryViewModel = new CategoryProductsViewModel
+                {
+                    Category = category,
+                    Products = products
+                };
+
+                viewModel.Add(categoryViewModel);
+            }
+
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
